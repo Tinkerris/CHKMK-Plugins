@@ -9,4 +9,4 @@ STATUS=1
 INFO=$( cat /var/run/reboot-required )
 CAUSE=$( head -n1 /var/run/reboot-required.pkgs )
 fi
-echo "$STATUS RebootStatus - $INFO $CAUSE"
+echo "$STATUS Rebootstate - $INFO $CAUSE"
