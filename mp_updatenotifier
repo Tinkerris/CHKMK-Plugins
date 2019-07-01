@@ -1,0 +1,12 @@
+#!/bin/bash
+FILE='/var/run/reboot-required'
+FILE2='/var/run/reboot-required.pkgs'
+if [[ ( ! -f $FILE ) || ( ! -f $FILE2 ) ]]; then
+STATUS=0
+INFO='No restart needed'
+else
+STATUS=1
+INFO=$( cat /var/run/reboot-required )
+CAUSE=$( head -n1 /var/run/reboot-required.pkgs )
+fi
+echo "$STATUS RebootStatus - $INFO $CAUSE"
